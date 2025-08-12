@@ -1,0 +1,64 @@
+{
+  "common": {
+    "login": "Connexion",
+    "register": "S'inscrire",
+    "logout": "Déconnexion",
+    "email": "Email",
+    "password": "Mot de passe",
+    "name": "Nom",
+    "submit": "Valider",
+    "cancel": "Annuler",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "finish": "Terminer",
+    "start": "Commencer",
+    "score": "Score",
+    "time": "Temps",
+    "question": "Question",
+    "of": "sur",
+    "loading": "Chargement..."
+  },
+  "auth": {
+    "loginTitle": "Connexion à votre compte",
+    "registerTitle": "Créer un compte",
+    "loginSubtitle": "Accédez à vos tests d'anglais",
+    "registerSubtitle": "Commencez votre évaluation",
+    "forgotPassword": "Mot de passe oublié ?",
+    "noAccount": "Pas de compte ?",
+    "hasAccount": "Déjà un compte ?",
+    "loginError": "Erreur de connexion",
+    "registerError": "Erreur d'inscription"
+  },
+  "dashboard": {
+    "welcome": "Bienvenue, {name}",
+    "currentLevel": "Niveau actuel",
+    "testsCompleted": "Tests complétés",
+    "startNewTest": "Nouveau test",
+    "viewResults": "Voir les résultats",
+    "profile": "Profil"
+  },
+  "quiz": {
+    "title": "Test TOEIC - Niveau d'anglais",
+    "progress": "Progression",
+    "timeRemaining": "Temps restant",
+    "question": "Question {current} sur {total}",
+    "selectAnswer": "Sélectionnez une réponse",
+    "nextQuestion": "Question suivante",
+    "previousQuestion": "Question précédente",
+    "submitTest": "Terminer le test",
+    "results": "Résultats",
+    "yourScore": "Votre score",
+    "correctAnswers": "Bonnes réponses",
+    "congratulations": "Félicitations !",
+    "tryAgain": "Recommencer",
+    "backToDashboard": "Retour au tableau de bord",
+    "explanation": "Explication"
+  },
+  "navigation": {
+    "home": "Accueil",
+    "dashboard": "Tableau de bord",
+    "quiz": "Test",
+    "results": "Résultats",
+    "profile": "Profil"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "common": {
+    "login": "Accedi",
+    "register": "Registrati",
+    "logout": "Esci",
+    "email": "Email",
+    "password": "Password",
+    "name": "Nome",
+    "submit": "Invia",
+    "cancel": "Annulla",
+    "next": "Avanti",
+    "previous": "Indietro",
+    "finish": "Termina",
+    "start": "Inizia",
+    "score": "Punteggio",
+    "time": "Tempo",
+    "question": "Domanda",
+    "of": "di",
+    "loading": "Caricamento..."
+  },
+  "auth": {
+    "loginTitle": "Accedi al tuo account",
+    "registerTitle": "Crea un account",
+    "loginSubtitle": "Accedi ai tuoi test di inglese",
+    "registerSubtitle": "Inizia la tua valutazione",
+    "forgotPassword": "Password dimenticata?",
+    "noAccount": "Nessun account?",
+    "hasAccount": "Hai già un account?",
+    "loginError": "Errore di accesso",
+    "registerError": "Errore di registrazione"
+  },
+  "dashboard": {
+    "welcome": "Benvenuto, {name}",
+    "currentLevel": "Livello Attuale",
+    "testsCompleted": "Test Completati",
+    "startNewTest": "Nuovo Test",
+    "viewResults": "Visualizza Risultati",
+    "profile": "Profilo"
+  },
+  "quiz": {
+    "title": "Test TOEIC - Livello di Inglese",
+    "progress": "Progresso",
+    "timeRemaining": "Tempo Rimanente",
+    "question": "Domanda {current} di {total}",
+    "selectAnswer": "Seleziona una risposta",
+    "nextQuestion": "Prossima Domanda",
+    "previousQuestion": "Domanda Precedente",
+    "submitTest": "Invia Test",
+    "results": "Risultati",
+    "yourScore": "Il Tuo Punteggio",
+    "correctAnswers": "Risposte Corrette",
+    "congratulations": "Congratulazioni!",
+    "tryAgain": "Riprova",
+    "backToDashboard": "Torna alla Dashboard",
+    "explanation": "Spiegazione"
+  },
+  "navigation": {
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "quiz": "Test",
+    "results": "Risultati",
+    "profile": "Profilo"
+  }
+}

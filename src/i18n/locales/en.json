@@ -1,0 +1,64 @@
+{
+  "common": {
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout",
+    "email": "Email",
+    "password": "Password",
+    "name": "Name",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "next": "Next",
+    "previous": "Previous",
+    "finish": "Finish",
+    "start": "Start",
+    "score": "Score",
+    "time": "Time",
+    "question": "Question",
+    "of": "of",
+    "loading": "Loading..."
+  },
+  "auth": {
+    "loginTitle": "Login to your account",
+    "registerTitle": "Create an account",
+    "loginSubtitle": "Access your English tests",
+    "registerSubtitle": "Start your assessment",
+    "forgotPassword": "Forgot password?",
+    "noAccount": "No account?",
+    "hasAccount": "Already have an account?",
+    "loginError": "Login error",
+    "registerError": "Registration error"
+  },
+  "dashboard": {
+    "welcome": "Welcome, {name}",
+    "currentLevel": "Current Level",
+    "testsCompleted": "Tests Completed",
+    "startNewTest": "New Test",
+    "viewResults": "View Results",
+    "profile": "Profile"
+  },
+  "quiz": {
+    "title": "TOEIC Test - English Level",
+    "progress": "Progress",
+    "timeRemaining": "Time Remaining",
+    "question": "Question {current} of {total}",
+    "selectAnswer": "Select an answer",
+    "nextQuestion": "Next Question",
+    "previousQuestion": "Previous Question",
+    "submitTest": "Submit Test",
+    "results": "Results",
+    "yourScore": "Your Score",
+    "correctAnswers": "Correct Answers",
+    "congratulations": "Congratulations!",
+    "tryAgain": "Try Again",
+    "backToDashboard": "Back to Dashboard",
+    "explanation": "Explanation"
+  },
+  "navigation": {
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "quiz": "Quiz",
+    "results": "Results",
+    "profile": "Profile"
+  }
+}

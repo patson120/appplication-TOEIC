@@ -1,0 +1,64 @@
+{
+  "common": {
+    "login": "Anmelden",
+    "register": "Registrieren",
+    "logout": "Abmelden",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "name": "Name",
+    "submit": "Senden",
+    "cancel": "Abbrechen",
+    "next": "Weiter",
+    "previous": "Zurück",
+    "finish": "Beenden",
+    "start": "Starten",
+    "score": "Punktzahl",
+    "time": "Zeit",
+    "question": "Frage",
+    "of": "von",
+    "loading": "Laden..."
+  },
+  "auth": {
+    "loginTitle": "In Ihr Konto einloggen",
+    "registerTitle": "Konto erstellen",
+    "loginSubtitle": "Zugang zu Ihren Englischtests",
+    "registerSubtitle": "Beginnen Sie Ihre Bewertung",
+    "forgotPassword": "Passwort vergessen?",
+    "noAccount": "Kein Konto?",
+    "hasAccount": "Bereits ein Konto?",
+    "loginError": "Anmeldefehler",
+    "registerError": "Registrierungsfehler"
+  },
+  "dashboard": {
+    "welcome": "Willkommen, {name}",
+    "currentLevel": "Aktuelles Level",
+    "testsCompleted": "Abgeschlossene Tests",
+    "startNewTest": "Neuer Test",
+    "viewResults": "Ergebnisse anzeigen",
+    "profile": "Profil"
+  },
+  "quiz": {
+    "title": "TOEIC Test - Englisch Level",
+    "progress": "Fortschritt",
+    "timeRemaining": "Verbleibende Zeit",
+    "question": "Frage {current} von {total}",
+    "selectAnswer": "Wählen Sie eine Antwort",
+    "nextQuestion": "Nächste Frage",
+    "previousQuestion": "Vorherige Frage",
+    "submitTest": "Test einreichen",
+    "results": "Ergebnisse",
+    "yourScore": "Ihre Punktzahl",
+    "correctAnswers": "Richtige Antworten",
+    "congratulations": "Herzlichen Glückwunsch!",
+    "tryAgain": "Erneut versuchen",
+    "backToDashboard": "Zurück zum Dashboard",
+    "explanation": "Erklärung"
+  },
+  "navigation": {
+    "home": "Startseite",
+    "dashboard": "Dashboard",
+    "quiz": "Test",
+    "results": "Ergebnisse",
+    "profile": "Profil"
+  }
+}
