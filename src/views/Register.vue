@@ -9,6 +9,20 @@
         <p class="text-gray-600 mt-2">{{ $t('auth.registerSubtitle') }}</p>
       </div>
 
+      <!-- Connexion Google -->
+      <div class="mb-6">
+        <GoogleLoginButton @error="error = $event" />
+        
+        <div class="relative my-6">
+          <div class="absolute inset-0 flex items-center">
+            <div class="w-full border-t border-gray-300"></div>
+          </div>
+          <div class="relative flex justify-center text-sm">
+            <span class="px-2 bg-white text-gray-500">{{ $t('auth.orContinueWith') }}</span>
+          </div>
+        </div>
+      </div>
+
       <form @submit.prevent="handleRegister" class="space-y-4">
         <div>
           <label for="name" class="block text-sm font-medium text-gray-700 mb-1">
@@ -84,6 +98,7 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '../stores/auth'
 import LoadingSpinner from '../components/LoadingSpinner.vue'
+import GoogleLoginButton from '../components/GoogleLoginButton.vue'
 
 const router = useRouter()
 const authStore = useAuthStore()

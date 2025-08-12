@@ -55,8 +55,17 @@
                 @click="showUserMenu = !showUserMenu"
                 class="flex items-center space-x-2 text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
               >
-                <div class="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center">
-                  <span class="text-primary-600 font-medium text-sm">
+                <div class="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center overflow-hidden">
+                  <img 
+                    v-if="authStore.user?.avatar" 
+                    :src="authStore.user.avatar" 
+                    :alt="authStore.user.name"
+                    class="w-full h-full object-cover"
+                  />
+                  <span 
+                    v-else
+                    class="text-primary-600 font-medium text-sm"
+                  >
                     {{ authStore.user?.name?.charAt(0).toUpperCase() }}
                   </span>
                 </div>

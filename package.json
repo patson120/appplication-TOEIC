@@ -14,7 +14,8 @@
     "pinia": "^3.0.3",
     "vue": "^3.4.38",
     "vue-i18n": "^11.1.11",
-    "vue-router": "^4.5.1"
+    "vue-router": "^4.5.1",
+    "vue3-google-login": "^2.0.34"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.10",

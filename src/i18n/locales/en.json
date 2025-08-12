@@ -23,6 +23,8 @@
     "registerTitle": "Create an account",
     "loginSubtitle": "Access your English tests",
     "registerSubtitle": "Start your assessment",
+    "continueWithGoogle": "Continue with Google",
+    "orContinueWith": "or continue with",
     "forgotPassword": "Forgot password?",
     "noAccount": "No account?",
     "hasAccount": "Already have an account?",

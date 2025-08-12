@@ -1,10 +1,13 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
+import { decodeCredential, type CredentialResponse } from 'vue3-google-login'
 
 interface User {
   id: string
   email: string
   name: string
+  avatar?: string
+  provider?: 'email' | 'google'
   level?: string
   testsCompleted: number
 }
@@ -26,6 +29,7 @@ export const useAuthStore = defineStore('auth', () => {
         id: '1',
         email,
         name: email.split('@')[0],
+        provider: 'email' as const,
         level: 'Intermediate',
         testsCompleted: 0
       }
@@ -49,6 +53,7 @@ export const useAuthStore = defineStore('auth', () => {
         id: Date.now().toString(),
         email,
         name,
+        provider: 'email' as const,
         level: 'Beginner',
         testsCompleted: 0
       }
@@ -58,6 +63,42 @@ export const useAuthStore = defineStore('auth', () => {
       return { success: true }
     } catch (error) {
       return { success: false, error: 'Registration failed' }
+    } finally {
+      isLoading.value = false
+    }
+  }
+
+  const loginWithGoogle = async (response: CredentialResponse) => {
+    isLoading.value = true
+    try {
+      const userData = decodeCredential(response.credential)
+      
+      const user = {
+        id: userData.sub,
+        email: userData.email,
+        name: userData.name,
+        avatar: userData.picture,
+        provider: 'google' as const,
+        level: 'Beginner',
+        testsCompleted: 0
+      }
+      
+      // Vérifier si l'utilisateur existe déjà
+      const existingUser = localStorage.getItem(`user_${userData.email}`)
+      if (existingUser) {
+        const savedUser = JSON.parse(existingUser)
+        user.level = savedUser.level
+        user.testsCompleted = savedUser.testsCompleted
+      }
+      
+      user.value = user
+      localStorage.setItem('user', JSON.stringify(user))
+      localStorage.setItem(`user_${userData.email}`, JSON.stringify(user))
+      
+      return { success: true }
+    } catch (error) {
+      console.error('Google login error:', error)
+      return { success: false, error: 'Erreur de connexion Google' }
     } finally {
       isLoading.value = false
     }
@@ -90,6 +131,7 @@ export const useAuthStore = defineStore('auth', () => {
     isAuthenticated,
     login,
     register,
+    loginWithGoogle,
     logout,
     loadUser,
     updateProfile
