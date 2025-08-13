@@ -62,16 +62,16 @@
           <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-4">
             <Award :size="24" class="text-green-600" />
           </div>
-          <h3 class="text-lg font-semibold text-gray-900 mb-2">Résultats Détaillés</h3>
-          <p class="text-gray-600">Analyse approfondie de vos points forts et faibles</p>
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Résultats Détaillés</h3>
+          <p class="text-gray-600 dark:text-gray-300">Analyse approfondie de vos points forts et faibles</p>
         </div>
         
         <div class="card p-6 text-center animate-slide-up" style="animation-delay: 0.3s">
           <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-4">
             <TrendingUp :size="24" class="text-orange-600" />
           </div>
-          <h3 class="text-lg font-semibold text-gray-900 mb-2">Suivi Progressif</h3>
-          <p class="text-gray-600">Suivez votre évolution au fil du temps</p>
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Suivi Progressif</h3>
+          <p class="text-gray-600 dark:text-gray-300">Suivez votre évolution au fil du temps</p>
         </div>
       </div>
     </main>

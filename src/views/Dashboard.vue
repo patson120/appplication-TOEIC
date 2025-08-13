@@ -22,7 +22,7 @@
 
           <div class="card p-6">
             <div class="flex items-center justify-between mb-4">
-              <h3 class="text-lg font-semibold text-gray-900">{{ $t('dashboard.testsCompleted') }}</h3>
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white">{{ $t('dashboard.testsCompleted') }}</h3>
               <BarChart3 :size="24" class="text-green-600" />
             </div>
             <div class="text-2xl font-bold text-green-600">{{ authStore.user?.testsCompleted || 0 }}</div>
@@ -30,7 +30,7 @@
 
           <div class="card p-6">
             <div class="flex items-center justify-between mb-4">
-              <h3 class="text-lg font-semibold text-gray-900">Dernier Score</h3>
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Dernier Score</h3>
               <Target :size="24" class="text-orange-600" />
             </div>
             <div class="text-2xl font-bold text-orange-600">{{ lastScore }}%</div>
