@@ -209,12 +209,14 @@
 import { ref, computed, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useAuthStore } from '../stores/auth'
+import { useOnboardingStore } from '../stores/onboarding'
 import AppNavigation from '../components/AppNavigation.vue'
 import LoadingSpinner from '../components/LoadingSpinner.vue'
 import { Save, Award, Play, Download, Trash2 } from 'lucide-vue-next'
 
 const { locale } = useI18n()
 const authStore = useAuthStore()
+const onboardingStore = useOnboardingStore()
 
 const profileForm = ref({
   name: '',
