@@ -35,6 +35,9 @@ export const useThemeStore = defineStore('theme', () => {
   // Watcher pour les changements de thème
   watch(isDark, applyTheme)
 
+  // Initialiser le thème au chargement
+  loadTheme()
+
   return {
     isDark,
     loadTheme,
