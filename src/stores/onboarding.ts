@@ -63,6 +63,10 @@ export const useOnboardingStore = defineStore('onboarding', () => {
     localStorage.removeItem('onboarding_completed')
   }
 
+  const shouldShowOnboarding = () => {
+    return !hasCompletedOnboarding.value
+  }
+
   return {
     hasCompletedOnboarding,
     currentStep,
@@ -71,6 +75,7 @@ export const useOnboardingStore = defineStore('onboarding', () => {
     nextStep,
     previousStep,
     completeOnboarding,
-    resetOnboarding
+    resetOnboarding,
+    shouldShowOnboarding
   }
 })

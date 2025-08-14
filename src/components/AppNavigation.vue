@@ -27,6 +27,9 @@
             </select>
           </div>
 
+          <!-- Toggle de thème -->
+          <ThemeToggle />
+
           <!-- Navigation authentifié -->
           <div v-if="authStore.isAuthenticated" class="flex items-center space-x-4">
             <router-link 
@@ -121,11 +124,14 @@ import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import { useAuthStore } from '../stores/auth'
+import { useThemeStore } from '../stores/theme'
+import ThemeToggle from './ThemeToggle.vue'
 import { ChevronDown } from 'lucide-vue-next'
 
 const router = useRouter()
 const { locale } = useI18n()
 const authStore = useAuthStore()
+const themeStore = useThemeStore()
 
 const showUserMenu = ref(false)
 const currentLocale = computed({
@@ -134,6 +140,9 @@ const currentLocale = computed({
     locale.value = value
   }
 })
+
+// Charger le thème au montage
+themeStore.loadTheme()
 
 const changeLocale = () => {
   localStorage.setItem('locale', currentLocale.value)

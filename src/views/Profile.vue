@@ -188,6 +188,14 @@
                   <Trash2 :size="18" />
                   <span>Réinitialiser les données</span>
                 </button>
+                
+                <button 
+                  @click="resetOnboarding"
+                  class="w-full bg-blue-100 hover:bg-blue-200 text-blue-700 font-medium py-3 px-4 rounded-lg transition-colors inline-flex items-center justify-center space-x-2"
+                >
+                  <Play :size="18" />
+                  <span>Relancer l'introduction</span>
+                </button>
               </div>
             </div>
           </div>
@@ -307,6 +315,11 @@ const confirmReset = () => {
     lastScore.value = 0
     alert('Données réinitialisées avec succès')
   }
+}
+
+const resetOnboarding = () => {
+  onboardingStore.resetOnboarding()
+  alert('Introduction réinitialisée ! Elle s\'affichera lors de votre prochaine visite du tableau de bord.')
 }
 
 onMounted(() => {

@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
 import { decodeCredential, type CredentialResponse } from 'vue3-google-login'
+import { useOnboardingStore } from './onboarding'
 
 interface User {
   id: string
@@ -36,6 +37,11 @@ export const useAuthStore = defineStore('auth', () => {
       
       user.value = userData
       localStorage.setItem('user', JSON.stringify(userData))
+      
+      // Réinitialiser l'onboarding pour les nouveaux utilisateurs
+      const onboardingStore = useOnboardingStore()
+      onboardingStore.resetOnboarding()
+      
       return { success: true }
     } catch (error) {
       return { success: false, error: 'Login failed' }
@@ -60,6 +66,11 @@ export const useAuthStore = defineStore('auth', () => {
       
       user.value = userData
       localStorage.setItem('user', JSON.stringify(userData))
+      
+      // Réinitialiser l'onboarding pour les nouveaux utilisateurs
+      const onboardingStore = useOnboardingStore()
+      onboardingStore.resetOnboarding()
+      
       return { success: true }
     } catch (error) {
       return { success: false, error: 'Registration failed' }

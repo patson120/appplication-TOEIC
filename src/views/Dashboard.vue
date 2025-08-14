@@ -2,6 +2,9 @@
   <div class="min-h-screen bg-gray-50">
     <AppNavigation />
     
+    <!-- Onboarding Modal -->
+    <OnboardingModal />
+    
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div class="animate-fade-in">
         <div class="mb-8">
@@ -177,13 +180,19 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { useAuthStore } from '../stores/auth'
+import { useOnboardingStore } from '../stores/onboarding'
 import AppNavigation from '../components/AppNavigation.vue'
+import OnboardingModal from '../components/OnboardingModal.vue'
 import { Award, BarChart3, Target, Play, TrendingUp, User, ArrowRight } from 'lucide-vue-next'
 
 const authStore = useAuthStore()
+const onboardingStore = useOnboardingStore()
 const lastScore = ref(0)
 
 onMounted(() => {
+  // Charger le statut de l'onboarding
+  onboardingStore.loadOnboardingStatus()
+  
   const savedResults = localStorage.getItem('quizResults')
   if (savedResults) {
     const results = JSON.parse(savedResults)
