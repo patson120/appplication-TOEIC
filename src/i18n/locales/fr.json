@@ -60,6 +60,8 @@
     "home": "Accueil",
     "dashboard": "Tableau de bord",
     "quiz": "Test",
+    "exercises": "Exercices",
+    "learningPath": "Parcours",
     "results": "Résultats",
     "profile": "Profil"
   }

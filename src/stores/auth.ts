@@ -11,6 +11,16 @@ interface User {
   provider?: 'email' | 'google'
   level?: string
   testsCompleted: number
+  currentLevel: 'beginner' | 'elementary' | 'intermediate' | 'upper-intermediate' | 'advanced' | 'proficient'
+  skillLevels: {
+    reading: number
+    listening: number
+    speaking: number
+    grammar: number
+  }
+  totalPoints: number
+  streak: number
+  lastActivity: string
 }
 
 export const useAuthStore = defineStore('auth', () => {
@@ -32,7 +42,17 @@ export const useAuthStore = defineStore('auth', () => {
         name: email.split('@')[0],
         provider: 'email' as const,
         level: 'Intermediate',
-        testsCompleted: 0
+        testsCompleted: 0,
+        currentLevel: 'intermediate' as const,
+        skillLevels: {
+          reading: 75,
+          listening: 68,
+          speaking: 62,
+          grammar: 82
+        },
+        totalPoints: 1250,
+        streak: 5,
+        lastActivity: new Date().toISOString()
       }
       
       user.value = userData
@@ -61,7 +81,17 @@ export const useAuthStore = defineStore('auth', () => {
         name,
         provider: 'email' as const,
         level: 'Beginner',
-        testsCompleted: 0
+        testsCompleted: 0,
+        currentLevel: 'beginner' as const,
+        skillLevels: {
+          reading: 45,
+          listening: 38,
+          speaking: 42,
+          grammar: 52
+        },
+        totalPoints: 0,
+        streak: 0,
+        lastActivity: new Date().toISOString()
       }
       
       user.value = userData
@@ -91,7 +121,17 @@ export const useAuthStore = defineStore('auth', () => {
         avatar: userData.picture,
         provider: 'google' as const,
         level: 'Beginner',
-        testsCompleted: 0
+        testsCompleted: 0,
+        currentLevel: 'beginner' as const,
+        skillLevels: {
+          reading: 45,
+          listening: 38,
+          speaking: 42,
+          grammar: 52
+        },
+        totalPoints: 0,
+        streak: 0,
+        lastActivity: new Date().toISOString()
       }
       
       // Vérifier si l'utilisateur existe déjà
@@ -100,6 +140,10 @@ export const useAuthStore = defineStore('auth', () => {
         const savedUser = JSON.parse(existingUser)
         user.level = savedUser.level
         user.testsCompleted = savedUser.testsCompleted
+        user.currentLevel = savedUser.currentLevel || 'beginner'
+        user.skillLevels = savedUser.skillLevels || user.skillLevels
+        user.totalPoints = savedUser.totalPoints || 0
+        user.streak = savedUser.streak || 0
       }
       
       user.value = user

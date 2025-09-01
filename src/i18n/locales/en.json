@@ -60,6 +60,8 @@
     "home": "Home",
     "dashboard": "Dashboard",
     "quiz": "Quiz",
+    "exercises": "Exercises",
+    "learningPath": "Learning Path",
     "results": "Results",
     "profile": "Profile"
   }

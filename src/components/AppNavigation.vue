@@ -57,6 +57,30 @@
             </router-link>
             
             <router-link 
+              to="/learning-path" 
+              class="relative px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 group"
+              :class="getNavLinkClass('/learning-path')"
+            >
+              <span class="relative z-10">Parcours</span>
+              <div 
+                class="absolute inset-0 bg-primary-100 dark:bg-primary-900/30 rounded-md transform scale-0 group-hover:scale-100 transition-transform duration-300"
+                :class="{ 'scale-100': isActiveRoute('/learning-path') }"
+              ></div>
+            </router-link>
+            
+            <router-link 
+              to="/exercises" 
+              class="relative px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 group"
+              :class="getNavLinkClass('/exercises')"
+            >
+              <span class="relative z-10">Exercices</span>
+              <div 
+                class="absolute inset-0 bg-primary-100 dark:bg-primary-900/30 rounded-md transform scale-0 group-hover:scale-100 transition-transform duration-300"
+                :class="{ 'scale-100': isActiveRoute('/exercises') }"
+              ></div>
+            </router-link>
+            
+            <router-link 
               to="/results" 
               class="relative px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 group"
               :class="getNavLinkClass('/results')"

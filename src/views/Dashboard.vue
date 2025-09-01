@@ -21,6 +21,7 @@
               <Award :size="24" class="text-primary-600" />
             </div>
             <div class="text-2xl font-bold text-primary-600">{{ authStore.user?.level || 'Beginner' }}</div>
+            <div class="mt-2 text-sm text-gray-600 dark:text-gray-400">{{ authStore.user?.totalPoints || 0 }} points</div>
           </div>
 
           <div class="card p-6">
@@ -29,6 +30,7 @@
               <BarChart3 :size="24" class="text-green-600" />
             </div>
             <div class="text-2xl font-bold text-green-600">{{ authStore.user?.testsCompleted || 0 }}</div>
+            <div class="mt-2 text-sm text-gray-600 dark:text-gray-400">{{ authStore.user?.streak || 0 }} jours consécutifs</div>
           </div>
 
           <div class="card p-6">
@@ -37,13 +39,46 @@
               <Target :size="24" class="text-orange-600" />
             </div>
             <div class="text-2xl font-bold text-orange-600">{{ lastScore }}%</div>
+            <div class="mt-2 text-sm text-gray-600 dark:text-gray-400">Moyenne: {{ averageScore }}%</div>
           </div>
         </div>
 
         <div class="grid lg:grid-cols-2 gap-8">
           <div class="card p-6">
-            <h3 class="text-xl font-bold text-gray-900 mb-4">Actions Rapides</h3>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Actions Rapides</h3>
             <div class="space-y-3">
+              <router-link 
+                to="/learning-path"
+                class="flex items-center justify-between p-4 bg-indigo-50 dark:bg-indigo-900/20 hover:bg-indigo-100 dark:hover:bg-indigo-900/30 rounded-lg transition-colors group"
+              >
+                <div class="flex items-center space-x-3">
+                  <div class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center">
+                    <BookOpen :size="18" class="text-white" />
+                  </div>
+                  <div>
+                    <h4 class="font-medium text-gray-900 dark:text-white">Parcours d'Apprentissage</h4>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Suivez un parcours structuré</p>
+                  </div>
+                </div>
+                <ArrowRight :size="18" class="text-gray-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors" />
+              </router-link>
+
+              <router-link 
+                to="/exercises"
+                class="flex items-center justify-between p-4 bg-purple-50 dark:bg-purple-900/20 hover:bg-purple-100 dark:hover:bg-purple-900/30 rounded-lg transition-colors group"
+              >
+                <div class="flex items-center space-x-3">
+                  <div class="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center">
+                    <Headphones :size="18" class="text-white" />
+                  </div>
+                  <div>
+                    <h4 class="font-medium text-gray-900 dark:text-white">Exercices Ciblés</h4>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Reading, Listening, Speaking</p>
+                  </div>
+                </div>
+                <ArrowRight :size="18" class="text-gray-400 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors" />
+              </router-link>
+
               <router-link 
                 to="/quiz"
                 class="flex items-center justify-between p-4 bg-primary-50 hover:bg-primary-100 rounded-lg transition-colors group"
@@ -137,40 +172,7 @@
             </div>
           </div>
 
-          <div class="card p-6">
-            <h3 class="text-xl font-bold text-gray-900 mb-4">Progression</h3>
-            <div class="space-y-4">
-              <div>
-                <div class="flex justify-between text-sm font-medium text-gray-700 mb-1">
-                  <span>Grammaire</span>
-                  <span>75%</span>
-                </div>
-                <div class="w-full bg-gray-200 rounded-full h-2">
-                  <div class="progress-bar w-3/4"></div>
-                </div>
-              </div>
-              
-              <div>
-                <div class="flex justify-between text-sm font-medium text-gray-700 mb-1">
-                  <span>Compréhension écrite</span>
-                  <span>60%</span>
-                </div>
-                <div class="w-full bg-gray-200 rounded-full h-2">
-                  <div class="progress-bar w-3/5"></div>
-                </div>
-              </div>
-              
-              <div>
-                <div class="flex justify-between text-sm font-medium text-gray-700 mb-1">
-                  <span>Vocabulaire</span>
-                  <span>85%</span>
-                </div>
-                <div class="w-full bg-gray-200 rounded-full h-2">
-                  <div class="progress-bar w-5/6"></div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <ProgressChart />
         </div>
       </div>
     </main>
@@ -183,11 +185,13 @@ import { useAuthStore } from '../stores/auth'
 import { useOnboardingStore } from '../stores/onboarding'
 import AppNavigation from '../components/AppNavigation.vue'
 import OnboardingModal from '../components/OnboardingModal.vue'
-import { Award, BarChart3, Target, Play, TrendingUp, User, ArrowRight } from 'lucide-vue-next'
+import ProgressChart from '../components/ProgressChart.vue'
+import { Award, BarChart3, Target, Play, TrendingUp, User, ArrowRight, BookOpen, Headphones } from 'lucide-vue-next'
 
 const authStore = useAuthStore()
 const onboardingStore = useOnboardingStore()
 const lastScore = ref(0)
+const averageScore = ref(72)
 
 onMounted(() => {
   // Charger le statut de l'onboarding
