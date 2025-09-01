@@ -97,3 +97,41 @@ html.dark {
 .animate-slide-up {
   animation: slideUp 0.6s ease-out;
 }
+
+/* Navigation active states */
+.nav-link-active {
+  position: relative;
+}
+
+.nav-link-active::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #3b82f6, #2563eb);
+  border-radius: 1px;
+  animation: expandLine 0.3s ease-out forwards;
+}
+
+@keyframes expandLine {
+  to {
+    width: 80%;
+  }
+}
+
+/* Pulse effect for active navigation */
+.nav-pulse {
+  animation: navPulse 2s infinite;
+}
+
+@keyframes navPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(59, 130, 246, 0);
+  }
+}

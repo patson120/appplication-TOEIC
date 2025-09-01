@@ -34,23 +34,38 @@
           <div v-if="authStore.isAuthenticated" class="flex items-center space-x-4">
             <router-link 
               to="/dashboard" 
-              class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300"
+              class="relative px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 group"
+              :class="getNavLinkClass('/dashboard')"
             >
-              {{ $t('navigation.dashboard') }}
+              <span class="relative z-10">{{ $t('navigation.dashboard') }}</span>
+              <div 
+                class="absolute inset-0 bg-primary-100 dark:bg-primary-900/30 rounded-md transform scale-0 group-hover:scale-100 transition-transform duration-300"
+                :class="{ 'scale-100': isActiveRoute('/dashboard') }"
+              ></div>
             </router-link>
             
             <router-link 
               to="/quiz" 
-              class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300"
+              class="relative px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 group"
+              :class="getNavLinkClass('/quiz')"
             >
-              {{ $t('navigation.quiz') }}
+              <span class="relative z-10">{{ $t('navigation.quiz') }}</span>
+              <div 
+                class="absolute inset-0 bg-primary-100 dark:bg-primary-900/30 rounded-md transform scale-0 group-hover:scale-100 transition-transform duration-300"
+                :class="{ 'scale-100': isActiveRoute('/quiz') }"
+              ></div>
             </router-link>
             
             <router-link 
               to="/results" 
-              class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300"
+              class="relative px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 group"
+              :class="getNavLinkClass('/results')"
             >
-              {{ $t('navigation.results') }}
+              <span class="relative z-10">{{ $t('navigation.results') }}</span>
+              <div 
+                class="absolute inset-0 bg-primary-100 dark:bg-primary-900/30 rounded-md transform scale-0 group-hover:scale-100 transition-transform duration-300"
+                :class="{ 'scale-100': isActiveRoute('/results') }"
+              ></div>
             </router-link>
             
             <div class="relative">
@@ -82,9 +97,13 @@
                 >
                   <router-link 
                     to="/profile" 
-                    class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-300"
+                    class="flex items-center px-4 py-2 text-sm transition-colors duration-300"
+                    :class="isActiveRoute('/profile') 
+                      ? 'text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/20 font-medium' 
+                      : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'"
                     @click="showUserMenu = false"
                   >
+                    <User :size="16" class="mr-2" />
                     {{ $t('navigation.profile') }}
                   </router-link>
                   <button 
@@ -121,14 +140,15 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import { useAuthStore } from '../stores/auth'
 import { useThemeStore } from '../stores/theme'
 import ThemeToggle from './ThemeToggle.vue'
-import { ChevronDown } from 'lucide-vue-next'
+import { ChevronDown, User } from 'lucide-vue-next'
 
 const router = useRouter()
+const route = useRoute()
 const { locale } = useI18n()
 const authStore = useAuthStore()
 const themeStore = useThemeStore()
@@ -146,6 +166,20 @@ themeStore.loadTheme()
 
 const changeLocale = () => {
   localStorage.setItem('locale', currentLocale.value)
+}
+
+const isActiveRoute = (path: string) => {
+  return route.path === path
+}
+
+const getNavLinkClass = (path: string) => {
+  const isActive = isActiveRoute(path)
+  
+  if (isActive) {
+    return 'text-primary-700 dark:text-primary-300 font-semibold nav-link-active nav-pulse'
+  }
+  
+  return 'text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400'
 }
 
 const logout = () => {
